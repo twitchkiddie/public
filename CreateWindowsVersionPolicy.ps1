@@ -1,5 +1,4 @@
-#Requires -Modules  MSAL.PS
-
+#Get version numbers
 function Invoke-GetVersionNumbers{
     $Windows10HTML = Invoke-RestMethod 'https://docs.microsoft.com/en-us/windows/release-health/release-information'
     $Windows10 = $Windows10HTML | Select-String '(?smi)<td>([^<]*)<\/td>' -AllMatches
@@ -17,6 +16,7 @@ function Invoke-GetVersionNumbers{
     return $Versions
 }
 
+#Get a token
 function Get-AuthTokenSP {
     $AppId = ''
     $AppSecret = ''
@@ -72,6 +72,7 @@ function Get-AuthTokenSP {
     }
 }
 
+#Create the json required for the policy
 function Invoke-CreateComplianceJSON($description,$displayName,$VersionNumber){
 $JSON = @"
 {
@@ -246,8 +247,11 @@ $JSON = @"
 
 return $JSON
 }
+
+#Get the version numbers
 $WindowsVersions = Invoke-GetVersionNumbers
 
+Run theough them and create a policy
 foreach($WindowsVersion in $WindowsVersions)
 {
     Write-Host "$($WindowsVersion.OS) OS Build $($WindowsVersion.MajorVersion) Version Requirement - 10.0.$($WindowsVersion.Build)"
