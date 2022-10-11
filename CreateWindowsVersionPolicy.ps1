@@ -7,10 +7,11 @@ function Invoke-GetVersionNumbers{
     $Windows11HTML = Invoke-RestMethod 'https://docs.microsoft.com/en-us/windows/release-health/windows11-release-information'
     $Windows11 = $Windows11HTML | Select-String '(?smi)<td>([^<]*)<\/td>' -AllMatches
     $Versions = @(
-        [pscustomobject]@{OS='Windows 11';MajorVersion=$Windows11.Matches[0].Groups[1].Value.SubString(0,4);Build=$Windows11.Matches[3].Groups[1].Value}
-        [pscustomobject]@{OS='Windows 10';MajorVersion=$Windows10.Matches[0].Groups[1].Value;Build=$Windows10.Matches[3].Groups[1].Value}
-        [pscustomobject]@{OS='Windows 10';MajorVersion=$Windows10.Matches[6].Groups[1].Value;Build=$Windows10.Matches[9].Groups[1].Value}
-        [pscustomobject]@{OS='Windows 10';MajorVersion=$Windows10.Matches[12].Groups[1].Value;Build=$Windows10.Matches[15].Groups[1].Value}
+        [pscustomobject]@{OS='Windows 11';MajorVersion=$Windows11.Matches[0].Groups[1].Value.SubString(0,4);Build=$Windows11.Matches[3].Groups[1].Value;ReleaseDate=$Windows11.Matches[2].Groups[1].Value}
+        [pscustomobject]@{OS='Windows 11';MajorVersion=$Windows11.Matches[6].Groups[1].Value;Build=$Windows11.Matches[9].Groups[1].Value;ReleaseDate=$Windows11.Matches[2].Groups[1].Value}
+        [pscustomobject]@{OS='Windows 10';MajorVersion=$Windows10.Matches[0].Groups[1].Value;Build=$Windows10.Matches[3].Groups[1].Value;ReleaseDate=$Windows10.Matches[2].Groups[1].Value}
+        [pscustomobject]@{OS='Windows 10';MajorVersion=$Windows10.Matches[6].Groups[1].Value;Build=$Windows10.Matches[9].Groups[1].Value;ReleaseDate=$Windows10.Matches[2].Groups[1].Value}
+        [pscustomobject]@{OS='Windows 10';MajorVersion=$Windows10.Matches[12].Groups[1].Value;Build=$Windows10.Matches[15].Groups[1].Value;ReleaseDate=$Windows10.Matches[2].Groups[1].Value}
  
     )
     return $Versions
