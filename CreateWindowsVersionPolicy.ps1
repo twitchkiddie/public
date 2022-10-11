@@ -1,3 +1,15 @@
+#Message to send to users
+$MessageTemplateID = ''
+
+#application ID
+$AppId = ''
+
+#Application Secret (should be in a vault)
+$AppSecret = ''
+
+#Tenant Name
+$TenantName = ''
+
 #Get version numbers
 function Invoke-GetVersionNumbers{
     $Windows10HTML = Invoke-RestMethod 'https://docs.microsoft.com/en-us/windows/release-health/release-information'
@@ -18,10 +30,10 @@ function Invoke-GetVersionNumbers{
 
 #Get a token
 function Get-AuthTokenSP {
-    $AppId = ''
-    $AppSecret = ''
+    $AppId = $AppId
+    $AppSecret = $AppSecret
     $Scope = "https://graph.microsoft.com/.default"
-    $TenantName = ""
+    $TenantName = $TenantName
 
     $Url = "https://login.microsoftonline.com/$TenantName/oauth2/v2.0/token"
 
@@ -131,112 +143,112 @@ $JSON = @"
                     "id": "efc08519-2fde-44c0-bd59-b05569bb7c82",
                     "gracePeriodHours": 24,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "d660a121-6515-4bc0-9a1b-e546a16dad0f",
                     "gracePeriodHours": 48,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "d95af6cf-b455-49d4-8d6e-e87fc6d97811",
                     "gracePeriodHours": 72,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "0dcc79da-c14c-4fee-b3ed-c07bcae1821f",
                     "gracePeriodHours": 96,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "fa1d3a8f-9f04-4955-a6e4-d3af61563b0a",
                     "gracePeriodHours": 120,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "fa1d3a8f-9f04-4955-a6e4-d3af61563b0a",
                     "gracePeriodHours": 144,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },                
                 {
                     "id": "fa1d3a8f-9f04-4955-a6e4-d3af61563b0a",
                     "gracePeriodHours": 168,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },                
                 {
                     "id": "fa1d3a8f-9f04-4955-a6e4-d3af61563b0a",
                     "gracePeriodHours": 192,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "6ef5c6d9-7fe7-46be-9c03-23659b9d265a",
                     "gracePeriodHours": 240,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "17e58653-c4a3-4f1b-9fb5-b5bcbb30e8bb",
                     "gracePeriodHours": 360,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "7ea10b0b-8fbd-4909-8634-ff7fc49418d6",
                     "gracePeriodHours": 480,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "8d2886e0-6bb1-4dc7-a94f-9ec94df0ecb4",
                     "gracePeriodHours": 600,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "061b9592-436c-4daf-a379-c71e15b35e6b",
                     "gracePeriodHours": 624,
                     "actionType": "notification",
-                    "notificationTemplateId": "c9a89382-284e-4c2e-8c09-ba2dafa215c8",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "f1fc15d9-8f68-416b-9838-e267891ccc9e",
                     "gracePeriodHours": 648,
                     "actionType": "notification",
-                    "notificationTemplateId": "5538df63-5a52-447e-937c-b35bdb7073ea",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "b49eeb30-d2a9-422c-8b47-e23b26c9ed97",
                     "gracePeriodHours": 672,
                     "actionType": "notification",
-                    "notificationTemplateId": "7b0464db-da4a-40a9-863b-e27cd5d71716",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 },
                 {
                     "id": "e40b0634-6fc9-4cfd-ace0-3c9b06c7f038",
                     "gracePeriodHours": 696,
                     "actionType": "notification",
-                    "notificationTemplateId": "35b6edb7-470c-4a7c-9c21-f79112deab31",
+                    "notificationTemplateId": "$($MessageTemplateID)",
                     "notificationMessageCCList": []
                 }
             ]
